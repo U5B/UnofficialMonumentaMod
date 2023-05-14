@@ -323,6 +323,7 @@ public class SlotLocking {
 	}
 
 	private static boolean isLockKeyPressed() {
+    if (getLockKeyCode() == -1) return false; // if key is unbound, do not bother checking
 		if (Objects.equals(((KeyBindingAccessor) LOCK_KEY).getBoundKey().getCategory(), InputUtil.Type.MOUSE)) {
 			return GLFW.glfwGetMouseButton(MinecraftClient.getInstance().getWindow().getHandle(), getLockKeyCode()) == 1;
 		} else {
