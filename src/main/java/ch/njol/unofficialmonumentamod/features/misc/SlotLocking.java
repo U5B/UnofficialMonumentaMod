@@ -203,7 +203,7 @@ public class SlotLocking {
 		Matrix4f positionMatrix = matrices.peek().getPositionMatrix();
 		RenderSystem.setShader(GameRenderer::getPositionColorProgram);
 		RenderSystem.enableBlend();
-		RenderSystem.disableTexture();
+		// RenderSystem.disableTexture();
 		RenderSystem.defaultBlendFunc();
 		
 		BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
@@ -218,7 +218,7 @@ public class SlotLocking {
 		}
 		
 		BufferRenderer.draw(bufferBuilder.end());
-		RenderSystem.enableTexture();
+		// RenderSystem.enableTexture();
 		RenderSystem.disableBlend();
 	}
 	

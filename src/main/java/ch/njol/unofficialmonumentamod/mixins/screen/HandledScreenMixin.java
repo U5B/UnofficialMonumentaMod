@@ -29,21 +29,21 @@ public abstract class HandledScreenMixin {
 		SlotLocking.getInstance().tickRender(matrices, mouseX, mouseY);
 	}
 
-	@Inject(
-			method = "render",
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/client/gui/screen/ingame/HandledScreen;isPointOverSlot(Lnet/minecraft/screen/slot/Slot;DD)Z",
-					shift = Shift.BEFORE
-			),
-			locals = LocalCapture.CAPTURE_FAILSOFT
-	)
-	private void umm$afterDrawnSlot(MatrixStack matrices, int mouseX, int mouseY, float delta, CallbackInfo ci, int i, int j, MatrixStack matrixStack, int k, Slot slot) {
-		RenderSystem.disableDepthTest();
-		RenderSystem.enableBlend();
-		HandledScreen $this = (HandledScreen) (Object) this;
-		SlotLocking.getInstance().drawSlot($this, matrices, slot);
-		RenderSystem.enableDepthTest();
-		RenderSystem.disableBlend();
-	}
+// 	@Inject(
+// 			method = "render",
+// 			at = @At(
+// 					value = "INVOKE",
+// 					target = "Lnet/minecraft/client/gui/screen/ingame/HandledScreen;isPointOverSlot(Lnet/minecraft/screen/slot/Slot;DD)Z",
+// 					shift = Shift.BEFORE
+// 			),
+// 			locals = LocalCapture.CAPTURE_FAILSOFT
+// 	)
+// 	private void umm$afterDrawnSlot(MatrixStack matrices, int mouseX, int mouseY, float delta, CallbackInfo ci, int i, int j, MatrixStack matrixStack, int k, Slot slot) {
+// 		RenderSystem.disableDepthTest();
+// 		RenderSystem.enableBlend();
+// 		HandledScreen $this = (HandledScreen) (Object) this;
+// 		SlotLocking.getInstance().drawSlot($this, matrices, slot);
+// 		RenderSystem.enableDepthTest();
+// 		RenderSystem.disableBlend();
+// 	}
 }
